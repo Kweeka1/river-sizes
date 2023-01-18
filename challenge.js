@@ -18,8 +18,7 @@ const traverse = (arr, visited, i, j) => {
 
 const riverSizes = (arr) => {
   const sizes = [];
-  const visited = Array.from(Array(arr.length), () => null)
-    .map(() => Array.from(Array(arr[0].length), () => false))
+  const visited = Array.from(Array(arr.length), () => Array.from(Array(arr[0].length), () => false))
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
