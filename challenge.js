@@ -1,16 +1,15 @@
 const traverse = (arr, visited, i, j) => {
   if (i >= arr.length || i < 0) return 0;
   if (j >= arr[i].length || j < 0) return 0;
-  let size = 0
 
   if (arr[i][j] === 1 && !visited[i][j]) {
-    size++
-    visited[i][j] = true
-    size += traverse(arr, visited, i + 1, j)
-    size += traverse(arr, visited, i - 1, j)
-    size += traverse(arr, visited, i, j + 1)
-    size += traverse(arr, visited, i, j - 1)
-    return size
+    let size = 1;
+    visited[i][j] = true;
+    size += traverse(arr, visited, i + 1, j);
+    size += traverse(arr, visited, i - 1, j);
+    size += traverse(arr, visited, i, j + 1);
+    size += traverse(arr, visited, i, j - 1);
+    return size;
   }
 
   return 0;
@@ -18,7 +17,7 @@ const traverse = (arr, visited, i, j) => {
 
 const riverSizes = (arr) => {
   const sizes = [];
-  const visited = Array.from(Array(arr.length), () => Array.from(Array(arr[0].length), () => false))
+  const visited = Array.from(Array(arr.length), () => Array.from(Array(arr[0].length), () => false));
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
